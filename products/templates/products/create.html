@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if error %}
+<p style="color:#FF0000">{{ error }} !</p>
+{% endif %}
+<br/>
+<h1>Create Product!</h1>
+<form method="POST" action="{% url 'create' %}" enctype='multipart/form-data'>
+  {% csrf_token %}
+  Title:
+  <br/>
+  <input type='text' name='title' />
+  <br/>
+  URL:
+  <br/>
+  <input type='text' name='url' />
+  <br/>
+  Pub_date:
+  <br/>
+  <input type='date' name='pub_date' />
+  <br/>
+  Icon:
+  <br/>
+  <input type='file' name='icon' />
+  <br/>
+  Image:
+  <br/>
+  <input type='file' name='image' />
+  <br/>
+  Body:
+  <br/>
+  <input type='textbox' name='body' />
+  <br/>
+  <br/>
+  <input class="btn btn-primary" type="submit" value="Create!">
+</form>
+{% endblock %}
